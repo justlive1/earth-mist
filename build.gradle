@@ -1,0 +1,36 @@
+apply from: rootProject.file("gradle/dependencies.gradle")
+
+
+subprojects {
+
+    apply plugin: "idea"
+    apply plugin: "eclipse"
+    apply plugin: "maven"
+    apply plugin: "java-library"
+
+    ext.libraries = rootProject.ext.libraries
+
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+        jcenter()
+    }
+
+
+    dependencies {
+
+        api libraries.commons
+
+
+    }
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": project.name,
+                    "Implementation-Vendor": project.group,
+                    "Created-By": project.group,
+                    "Implementation-Version": project.version)
+        }
+    }
+}

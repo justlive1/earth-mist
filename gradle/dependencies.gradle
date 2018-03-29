@@ -1,0 +1,31 @@
+ext.libraries = [
+
+        vertx  : [
+                dependencies.create("io.vertx:vertx-core:$vertxVersion") {
+                    force = true
+                },
+                dependencies.create("io.vertx:vertx-unit:$vertxVersion") {
+                    force = true
+                }
+        ],
+
+        commons: [
+                dependencies.create("com.google.guava:guava:$guavaVersion") {
+                    force = true
+                },
+                dependencies.create("org.projectlombok:lombok:$lombokVersion") {
+                    force = true
+                }
+        ],
+
+        logging: [
+                dependencies.create("org.slf4j:slf4j-api:$log4jVersion") {
+                    force = true
+                },
+                dependencies.create("ch.qos.logback:logback-classic:$logbackVersion") {
+                    force = true
+                }
+        ]
+]
+
+

@@ -1,0 +1,23 @@
+dependencies {
+
+    compile project(':mist-api')
+    compile libraries.logging
+    compile libraries.vertx
+}
+
+
+jar {
+    manifest {
+        attributes("Implementation-Title": project.name,
+                "Implementation-Vendor": project.group,
+                "Created-By": project.group,
+                "Implementation-Version": project.version,
+                "Main-Class": "io.vertx.core.Launcher",
+                "Main-Verticle": "net.oschina.git.justlive1.breeze.mist.server.demo.DemoVerticle")
+    }
+
+    from {
+
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
