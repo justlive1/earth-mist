@@ -13,7 +13,7 @@ jar {
                 "Created-By": project.group,
                 "Implementation-Version": project.version,
                 "Main-Class": "io.vertx.core.Launcher",
-                "Main-Verticle": "net.oschina.git.justlive1.breeze.mist.server.demo.DemoVerticle")
+                "Main-Verticle": "justlive1.earth.breeze.mist.server.demo.DemoVerticle")
     }
 
     from {
