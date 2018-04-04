@@ -45,8 +45,8 @@
     - 认证中心通知所有用户登录访问的应用，用户已登出。
 
 - 流程
-  - 用户通过浏览器地址栏访问系统A，系统A去Cookie中拿JSESSION，即在Cookie中维护的当前回话session的id，如果拿到了，说明用户已经登录，如果未拿到，说明用户未登录
-  - 假如系统A的地址为http://a:8080/，认证中心的服务地址为http://server:8080/，那么重点向前后地址变化为：http://a:8080/————>ttp://server:8080/?service=http://a:8080/，由此可知，重点向到认证中心，认证中心拿到了当前访问客户端的地址
+  - 用户通过浏览器地址栏访问系统A，系统A去Cookie中拿JSESSION，即在Cookie中维护的当前会话session的id，如果拿到了，说明用户已经登录，如果未拿到，说明用户未登录
+  - 假如系统A的地址为http://a:8080/，认证中心的服务地址为http://server:8080/，那么重点向前后地址变化为：http://a:8080/————>http://server:8080/?service=http://a:8080/，由此可知，重点向到认证中心，认证中心拿到了当前访问客户端的地址
   - 重定向之后的地址栏变成：http://a:8080/?ticket=ST-XXXX-XXX，将票据以ticket为参数名的方式通过地址栏发送给系统A
   - 系统A通过地址栏获取ticket的参数值ST票据，然后从后台将ST发送给认证中心验证，验证ST有效后，server返回当前用户登录的相关信息，系统A接收到返回的用户信息，并为该用户创建session会话，会话id由cookie维护，来证明其已登录
   - 在系统A登录成功后，用户和认证中心之间建立起了全局会话，这个全局会话就是TGT(Ticket Granting Ticket)，TGT位于服务器端，TGT并没有放在Session中，也就是说，全局会话的实现并没有直接使用Session机制，而是利用了Cookie自己实现的，这个Cookie叫做TGC，它存放了TGT的id,保存在用户浏览器上
@@ -59,17 +59,15 @@
 ## 开发
 	
 ```
-    // 功能点
-        mist-auth
-            认证相关，定义统一认证接口服务
+mist-auth
+    认证相关，定义统一认证接口服务
+    
+mist-valid
+    校验相关，包含ticket校验等
+    
+mist-client
+    认证中心客户端
             
-        mist-valid
-            校验相关，包含ticket校验等
-            
-        mist-client
-            认证中心客户端
-            
-
 
 ```
 			

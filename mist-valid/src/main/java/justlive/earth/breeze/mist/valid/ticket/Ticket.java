@@ -18,4 +18,11 @@ public interface Ticket extends Serializable {
    * 是否失效
    */
   boolean isExpired();
+
+  /**
+   * 前缀
+   *
+   * @return
+   */
+  String getPrefix();
 }
