@@ -25,6 +25,12 @@ ext.libraries = [
                 dependencies.create("ch.qos.logback:logback-classic:$logbackVersion") {
                     force = true
                 }
+        ],
+
+        earthcommon: [
+                dependencies.create("justlive.earth.breeze.snow:snow-common-web-vertx:$earthVersion") {
+                    force = true
+                }
         ]
 ]
 

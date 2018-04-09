@@ -1,6 +1,9 @@
 dependencies {
 
     compile project(':mist-api')
+
+    compile libraries.earthcommon
+
     compile libraries.logging
     compile libraries.vertx
 }
@@ -13,7 +16,7 @@ jar {
                 "Created-By": project.group,
                 "Implementation-Version": project.version,
                 "Main-Class": "io.vertx.core.Launcher",
-                "Main-Verticle": "justlive1.earth.breeze.mist.server.demo.DemoVerticle")
+                "Main-Verticle": "justlive.earth.breeze.mist.server.verticle.WebVerticle")
     }
 
     from {
