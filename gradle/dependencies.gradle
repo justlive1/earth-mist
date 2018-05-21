@@ -28,7 +28,7 @@ ext.libraries = [
         ],
 
         earthcommon: [
-                dependencies.create("justlive.earth.breeze.snow:snow-common-web-vertx:$earthVersion") {
+                dependencies.create("vip.justlive:snow-common-web-vertx:$snowVersion") {
                     force = true
                 }
         ]
